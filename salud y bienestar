@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Salud y Bienestar - Blog con Google AdSense</title>
+    <meta name="description" content="Blog de salud y bienestar con consejos, artículos y anuncios de Google AdSense." />
+
+    <!-- Google AdSense: reemplaza ca-pub-XXXXXXXXXXXX con tu ID de editor -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous" data-ad-client="ca-pub-XXXXXXXXXXXX"></script>
+
+    <style>
+      :root{ --max-width:900px; --accent:#198754 }
+      body{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; padding:0; background:#f2f7f4; color:#111}
+      .container{max-width:var(--max-width); margin:32px auto; padding:24px; background:#fff; border-radius:12px; box-shadow:0 6px 24px rgba(10,20,40,0.06)}
+      header{display:flex; gap:16px; align-items:center}
+      h1{margin:0; font-size:1.8rem; color:var(--accent)}
+      p.lead{color:#46566a}
+      article{line-height:1.6; margin-bottom:20px}
+      .ad-slot{margin:20px 0; text-align:center}
+      footer{margin-top:24px; font-size:0.9rem; color:#666}
+      img.hero{width:100%; border-radius:12px; margin:16px 0}
+
+      /* Consent banner */
+      .consent{position:fixed; left:16px; right:16px; bottom:16px; background:#fff; border-radius:10px; padding:12px 16px; box-shadow:0 10px 30px rgba(8,20,50,0.12); display:flex; gap:12px; align-items:center; z-index:999}
+      .consent p{margin:0; font-size:0.95rem}
+      .btn{border:0; padding:8px 12px; border-radius:8px; cursor:pointer}
+      .btn-accept{background:var(--accent); color:#fff}
+      .btn-decline{background:#eee}
+
+      @media (max-width:600px){ .container{margin:12px; padding:16px} }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="https://img.icons8.com/color/96/000000/heart-with-pulse.png" alt="logo salud" width="64" height="64" />
+        <div>
+          <h1>Salud y Bienestar</h1>
+          <p class="lead">Consejos y artículos para mejorar tu calidad de vida.</p>
+        </div>
+      </header>
+
+      <main>
+        <img class="hero" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Salud y bienestar" />
+
+        <article>
+          <h2>Importancia de una dieta balanceada</h2>
+          <p>Una alimentación saludable ayuda a prevenir enfermedades y mejora el estado de ánimo. Es recomendable consumir frutas, verduras, proteínas magras y evitar el exceso de azúcares y grasas saturadas.</p>
+          
+          <div class="ad-slot">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXX"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          </div>
+        </article>
+
+        <article>
+          <h2>Ejercicio físico regular</h2>
+          <p>Realizar actividad física al menos 30 minutos al día ayuda a mantener el corazón sano, fortalecer los músculos y reducir el estrés. Puedes practicar caminar, correr, nadar o incluso yoga en casa.</p>
+
+          <div class="ad-slot">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-XXXXXXXXXXXX"
+                 data-ad-slot="0987654321"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          </div>
+        </article>
+
+        <article>
+          <h2>Descanso y salud mental</h2>
+          <p>Dormir entre 7 y 8 horas por noche y practicar técnicas de relajación, como la meditación o la respiración profunda, contribuye al bienestar integral.</p>
+        </article>
+
+        <aside style="margin-top:20px;">
+          <h4>Consejos rápidos de salud</h4>
+          <ul>
+            <li>Bebe suficiente agua durante el día.</li>
+            <li>Evita el tabaco y el alcohol en exceso.</li>
+            <li>Realiza chequeos médicos periódicos.</li>
+          </ul>
+        </aside>
+      </main>
+
+      <footer>
+        <p>© 2025 Salud y Bienestar. <a href="/politica-privacidad.html">Política de privacidad</a> — <a href="#" id="manage-ads">Gestionar anuncios</a></p>
+      </footer>
+    </div>
+
+    <div class="consent" id="consent-banner" role="dialog" aria-live="polite">
+      <p>Usamos cookies para mostrar anuncios y mejorar tu experiencia. ¿Aceptas anuncios personalizados?</p>
+      <div style="margin-left:auto; display:flex; gap:8px;">
+        <button class="btn btn-decline" id="decline">Rechazar</button>
+        <button class="btn btn-accept" id="accept">Aceptar</button>
+      </div>
+    </div>
+
+    <script>
+      (function(){
+        const banner = document.getElementById('consent-banner');
+        const accept = document.getElementById('accept');
+        const decline = document.getElementById('decline');
+        const key = 'ads_consent_v1';
+        const val = localStorage.getItem(key);
+        if(val === 'accepted' || val === 'declined') banner.style.display = 'none';
+
+        accept.addEventListener('click', ()=>{
+          localStorage.setItem(key,'accepted');
+          banner.style.display = 'none';
+          try{ (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 0; }catch(e){}
+        });
+        decline.addEventListener('click', ()=>{
+          localStorage.setItem(key,'declined');
+          banner.style.display = 'none';
+          try{ (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1; }catch(e){}
+        });
+
+        document.getElementById('manage-ads').addEventListener('click', (e)=>{ e.preventDefault(); banner.style.display='flex'; });
+      })();
+    </script>
+  </body>
+</html>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Política de Privacidad - Salud y Bienestar</title>
+    <style>
+      body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f8f9fa;color:#222;line-height:1.6}
+      .container{max-width:900px;margin:40px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+      h1{color:#198754}
+      h2{margin-top:20px;color:#198754}
+      a{color:#198754}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Política de Privacidad</h1>
+      <p>En <strong>Salud y Bienestar</strong>, respetamos tu privacidad y estamos comprometidos a proteger la información personal que compartes con nosotros.</p>
+
+      <h2>Información que recopilamos</h2>
+      <p>Podemos recopilar información básica como tu dirección IP, tipo de navegador y páginas visitadas, con fines estadísticos y de mejora del sitio.</p>
+
+      <h2>Uso de cookies</h2>
+      <p>Este sitio utiliza cookies para personalizar la experiencia del usuario y mostrar anuncios relevantes mediante Google AdSense. Puedes aceptar o rechazar el uso de cookies a través del banner de consentimiento.</p>
+
+      <h2>Google AdSense</h2>
+      <p>Mostramos anuncios a través de Google AdSense. Google, como proveedor externo, utiliza cookies para mostrar anuncios basados en tus visitas anteriores a este y otros sitios web. Puedes inhabilitar la publicidad personalizada desde <a href="https://www.google.com/settings/ads" target="_blank">Configuración de anuncios de Google</a>.</p>
+
+      <h2>Protección de datos</h2>
+      <p>No vendemos, alquilamos ni compartimos tu información personal con terceros sin tu consentimiento, salvo cuando sea requerido por ley.</p>
+
+      <h2>Enlaces externos</h2>
+      <p>Nuestro sitio puede contener enlaces a sitios externos. No nos hacemos responsables de las prácticas de privacidad de dichos sitios.</p>
+
+      <h2>Cambios en esta política</h2>
+      <p>Podemos actualizar esta política de privacidad en cualquier momento. Te recomendamos revisarla periódicamente.</p>
+
+      <h2>Contacto</h2>
+      <p>Si tienes preguntas sobre esta política, puedes escribirnos a: <a href="mailto:contacto@saludybienestar.com">contacto@saludybienestar.com</a></p>
+
+      <p><a href="/index.html">← Volver al inicio</a></p>
+    </div>
+  </body>
+</html>
